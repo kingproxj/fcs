@@ -1,13 +1,16 @@
 #!/usr/bin/env bash
 
-sleep 10
+export MODEL_PKL_URI=http://10.221.128.170.xip.io:30885
+export FEATURE_CSV_URI=http://10.221.128.170.xip.io:30885
+export TRAIN_FILES_URI=http://10.221.128.170.xip.io:30885
+export TEST_FILES_URI=http://10.221.128.170.xip.io:30885
 
 set -x
 
-MODEL_PKL_URI=${http://10.221.128.170.xip.io:30885:-localhost:8080}
-FEATURE_CSV_URI=${http://10.221.128.170.xip.io:30885:-localhost:8080}
-TRAIN_FILES_URI=${http://10.221.128.170.xip.io:30885:-localhost:8080}
-TEST_FILES_URI=${http://10.221.128.170.xip.io:30885:-localhost:8080}
+MODEL_PKL_URI=${MODEL_PKL_URI:-localhost:8080}
+FEATURE_CSV_URI=${FEATURE_CSV_URI:-localhost:8080}
+TRAIN_FILES_URI=${TRAIN_FILES_URI:-localhost:8080}
+TEST_FILES_URI=${TEST_FILES_URI:-localhost:8080}
 
 mkdir -p /score/model_file/loan
 mkdir -p /score/model_pkl/loan
