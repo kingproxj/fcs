@@ -25,5 +25,9 @@ if "CodeUri" in os.environ:
 lst = os.listdir(os.getcwd())  # 获取当前目录下所有的文件名
 for c in lst:
     if os.path.isfile(c) and c.endswith('.py') and c.find("run")== -1 and c.find("urllib-demo") == -1:  #判断文件名是以.py结尾的，并且去掉run.py文件
-       print("开始执行：", c)  #查看文件
-       os.system('python {}'.format(c))  #相当于在终端执行文件  python main.py
+        print("开始执行", c)  #查看文件
+        os.system('python {}'.format(c))  #相当于在终端执行文件  python main.py
+    if os.path.isfile(c) and c.endswith('.sh'):
+        print("开始执行", c)  #查看文件
+        co = "sh " + c
+        os.system(co)
