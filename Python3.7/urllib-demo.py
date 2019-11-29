@@ -1,7 +1,7 @@
 import urllib.request
 import os
 
-os.environ['CodeUri'] = 'https://raw.githubusercontent.com/kingproxj/fcs/master/index.py,https://raw.githubusercontent.com/kingproxj/fcs/master/Python3.7/test.py'
+os.environ['CodeUri'] = 'https://raw.githubusercontent.com/kingproxj/fcs/master/index.py,https://raw.githubusercontent.com/kingproxj/fcs/master/Python3.7/test.py,https://raw.githubusercontent.com/kingproxj/fcs/master/Python3.7/start.sh'
 
 def Schedule(blocknum, blocksize, totalsize):
     '''
