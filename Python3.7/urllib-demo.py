@@ -1,4 +1,4 @@
-import urllib
+import urllib.request
 import os
 
 os.environ['CodeUri'] = 'https://raw.githubusercontent.com/kingproxj/fcs/master/index.py,https://raw.githubusercontent.com/kingproxj/fcs/master/Python3.7/test.py'
@@ -17,6 +17,7 @@ def Schedule(blocknum, blocksize, totalsize):
 
 if "CodeUri" in os.environ:
     codeUri = os.getenv('CodeUri')
+    print("codeUri is %s", codeUri)
     for code_url in codeUri:
         filename = code_url.split('/')[-1]
         print("开始下载%s", filename)
