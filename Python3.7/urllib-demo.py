@@ -28,6 +28,7 @@ for c in lst:
         print("开始执行", c)  #查看文件
         os.system('python {}'.format(c))  #相当于在终端执行文件  python main.py
     if os.path.isfile(c) and c.endswith('.sh'):
-        print("开始执行", c)  #查看文件
         co = "sh " + c
-        os.system(co)
+        print("开始执行", co)  #查看文件
+        val = os.system(co)
+        print("执行结果为",val)
