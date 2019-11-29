@@ -3,7 +3,7 @@ MAINTAINER silenceshell <silenceshell@datastart.cn>
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		vim \
       && rm -rf /var/lib/apt/lists/* \
-      && mkdir -p /fcs
-WORKDIR /fcs
-COPY urllib-demo.py .
+      && mkdir -p /fcs \
+      && curl -SL https://raw.githubusercontent.com/kingproxj/fcs/master/Python3.7/urllib-demo.py /fcs
+
 CMD ["/bin/sh", "-c", "sleep 360000"]
