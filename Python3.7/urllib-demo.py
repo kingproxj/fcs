@@ -18,5 +18,5 @@ def Schedule(blocknum, blocksize, totalsize):
 codeUri = os.getenv('codeUri')
 for code_url in codeUri:
     filename = code_url.split('/')[-1]
-	  print("开始下载%s", filename)
+    print("开始下载%s", filename)
     urllib.request.urlretrieve(code_url, filename, Schedule)
