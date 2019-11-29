@@ -13,12 +13,11 @@ def Schedule(blocknum, blocksize, totalsize):
     per = 100.0*blocknum*blocksize/totalsize
     if per > 100:
         per = 100
-        print('当前下载进度：%d') % per
+        print('当前下载进度：%d' % per)
 
 if "CodeUri" in os.environ:
-    codeUri = os.getenv('CodeUri')
-    print("codeUri is %s", codeUri)
-    for code_url in codeUri:
+    codeUris = (os.getenv('CodeUri')).split(',')
+    for code_url in codeUris:
         filename = code_url.split('/')[-1]
-        print("开始下载%s", filename)
+        print("开始下载", filename)
         urllib.request.urlretrieve(code_url, filename, Schedule)
