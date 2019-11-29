@@ -1,7 +1,7 @@
 import urllib
 import os
 
-os.putenv('codeUri','https://raw.githubusercontent.com/kingproxj/fcs/master/index.py,https://raw.githubusercontent.com/kingproxj/fcs/master/Python3.7/test.py')
+os.environ['CodeUri'] = 'https://raw.githubusercontent.com/kingproxj/fcs/master/index.py,https://raw.githubusercontent.com/kingproxj/fcs/master/Python3.7/test.py'
 
 def Schedule(blocknum, blocksize, totalsize):
     '''
@@ -15,8 +15,9 @@ def Schedule(blocknum, blocksize, totalsize):
         per = 100
         print('当前下载进度：%d') % per
 
-codeUri = os.getenv('codeUri')
-for code_url in codeUri:
-    filename = code_url.split('/')[-1]
-    print("开始下载%s", filename)
-    urllib.request.urlretrieve(code_url, filename, Schedule)
+if "CodeUri" in os.environ:
+    codeUri = os.getenv('CodeUri')
+    for code_url in codeUri:
+        filename = code_url.split('/')[-1]
+        print("开始下载%s", filename)
+        urllib.request.urlretrieve(code_url, filename, Schedule)
