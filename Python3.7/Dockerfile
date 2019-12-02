@@ -8,10 +8,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       && mkdir -p /score/model_file/loan \
       && mkdir -p /score/model_pkl/loan 
 
+WORKDIR /fcs
 ADD . /fcs
 ADD urllib-demo.py /fcs
 COPY urllib-demo.py /fcs
 COPY index.py /fcs
-WORKDIR /fcs
 
 CMD ["/bin/sh", "-c", "sleep 360000"]
