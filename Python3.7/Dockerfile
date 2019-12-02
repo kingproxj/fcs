@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		vim \
       && rm -rf /var/lib/apt/lists/* \
       && mkdir -p /fcs \
-      && mkdir -o /score \
+      && mkdir -p /score \
       && mkdir -p /score/model_file/loan \
       && mkdir -p /score/model_pkl/loan 
 
