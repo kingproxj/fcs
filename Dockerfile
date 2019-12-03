@@ -1,5 +1,11 @@
 FROM python:3.7.5-alpine3.10
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		vim \
+		gcc \
+      && rm -rf /var/lib/apt/lists/* \
+      && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
+
 RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
     && pip3 install setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install anaconda  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
@@ -33,11 +39,6 @@ RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host 
 	&& pip3 install tornado==5.1  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install xgboost==0.90  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install uwsgi
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		vim \
-      && rm -rf /var/lib/apt/lists/* \
-      && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
 
 ADD . /score
 ADD urllib-demo.py /fcs
