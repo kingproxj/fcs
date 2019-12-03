@@ -14,9 +14,9 @@ RUN cd / && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 
 # install related python packages
 RUN yum install -y python-pip \
-    && yum install -y python-setuptools \
-    && pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-    && pip3 install setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
+	&& yum install -y python-setuptools \
+	&& pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
+	&& pip3 install setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install anaconda  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install conda==4.3.16  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install cx_Oracle==7.2.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
@@ -37,7 +37,7 @@ RUN yum install -y python-pip \
 	&& pip3 install pydotplus==2.0.2  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install requests==2.22.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install scikit-image==0.14.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-	&& pip3 install scikit-learn==0.21.3  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
+	&& pip3 install scikit-learn==0.20.2  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install scikit-surprise==1.0.6  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install scipy==1.2.1  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install seaborn==0.9.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
