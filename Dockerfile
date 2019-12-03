@@ -4,7 +4,7 @@ FROM centos:7.2.1511
 ENV ENVIRONMENT DOCKER_PROD
 RUN cd / && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && yum makecache \
-    && yum install -y wget aclocal automake autoconf make gcc gcc-c++ python-devel mysql-devel bzip2 libffi-devel epel-release\
+    && yum install -y unzip zip git wget aclocal automake autoconf make gcc gcc-c++ python-devel mysql-devel bzip2 libffi-devel epel-release\
     && wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz \
     && tar -xvf Python-3.7.0.tar.xz -C /usr/local/\
     && rm -rf Python-3.7.0.tar.xz \
