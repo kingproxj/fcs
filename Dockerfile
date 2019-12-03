@@ -3,6 +3,7 @@ FROM python:3.7.5-alpine3.10
 RUN apk update \
         && apk upgrade \
         && apk add --no-cache bash \
+        gcc \
         bash-doc \
         bash-completion \
 	git \
