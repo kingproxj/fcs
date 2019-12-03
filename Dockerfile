@@ -1,22 +1,8 @@
-# base image
-FROM centos:7.2.1511
-# install related packages and python3
-ENV ENVIRONMENT DOCKER_PROD
-RUN cd / && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && yum makecache \
-    && yum install -y unzip zip git wget aclocal automake autoconf make gcc gcc-c++ python-devel mysql-devel bzip2 libffi-devel epel-release\
-    && wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz \
-    && tar -xvf Python-3.7.0.tar.xz -C /usr/local/\
-    && rm -rf Python-3.7.0.tar.xz \
-    && cd /usr/local/Python-3.7.0 \
-    && ./configure && make && make install \
-    && yum clean all
+FROM python:3.7-buster
 
-# install related python packages
-RUN yum install -y python-pip \
-	&& yum install -y python-setuptools \
-	&& pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-	&& pip3 install setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
+RUN apt-get install -y python-setuptools \
+    && pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
+    && pip3 install setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install anaconda  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install conda==4.3.16  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install cx_Oracle==7.2.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
@@ -46,8 +32,12 @@ RUN yum install -y python-pip \
 	&& pip3 install sqlalchemy==1.3.3  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install tensorflow==1.14.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install tornado==5.1  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-	&& pip3 install xgboost==0.90  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-	&& mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
+	&& pip3 install xgboost==0.90  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com 
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		vim \
+      && rm -rf /var/lib/apt/lists/* \
+      && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
 
 ADD . /score
 ADD urllib-demo.py /fcs
