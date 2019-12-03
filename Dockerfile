@@ -1,4 +1,4 @@
-FROM python:3.7-buster
+FROM python:3.7.5-alpine3.10
 
 RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
     && pip3 install setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
