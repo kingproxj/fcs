@@ -4,6 +4,7 @@ RUN apk update \
         && apk upgrade \
         && apk add --no-cache bash \
         gcc \
+        g++ \
         bash-doc \
         bash-completion \
 	git \
