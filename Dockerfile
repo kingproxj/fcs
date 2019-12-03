@@ -49,6 +49,7 @@ RUN yum install -y python-pip \
 	&& pip3 install xgboost==0.90  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
 
+ADD . /score
 ADD urllib-demo.py /fcs
 COPY index.py /fcs
 
