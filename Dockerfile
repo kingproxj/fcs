@@ -31,10 +31,11 @@ RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host 
 	&& pip3 install sqlalchemy==1.3.3  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install tensorflow==1.14.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install tornado==5.1  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-	&& pip3 install xgboost==0.90  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com 
+	&& pip3 install xgboost==0.90  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
+	&& pip3 install uwsgi
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		vim uwsgi \
+		vim \
       && rm -rf /var/lib/apt/lists/* \
       && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
 
