@@ -43,7 +43,7 @@ RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host 
 	&& pip3 install SQLAlchemy==1.2.11  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	&& pip3 install sqlalchemy==1.3.3  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
 	###&& pip3 install tensorflow==1.14.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-	&& pip3 install tornado==5.1  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
+	&& pip3 install tornado==5.1  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 
 ADD . /score
 ADD urllib-demo.py /fcs
