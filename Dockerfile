@@ -5,6 +5,9 @@ RUN apk update \
         && apk add --no-cache bash \
         bash-doc \
         bash-completion \
+	git \
+	zip \
+	curl \
         && rm -rf /var/cache/apk/* \
         && /bin/bash \
         && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
