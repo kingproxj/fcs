@@ -14,7 +14,7 @@ ENV CONDA_DIR /opt/conda
 ENV PATH $CONDA_DIR/bin:$PATH
 
 RUN wget --quiet --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh && \
-    echo "c59b3dd3cad550ac7596e0d599b91e75d88826db132e4146030ef471bb434e9a *Miniconda3-4.7.12.1-Linux-x86_64.sh" | sha256sum -c - && \
+    ###echo "81c773ff87af5cfac79ab862942ab6b3 *Miniconda3-4.7.12.1-Linux-x86_64.sh" | md5sum -c - && \
     /bin/bash /Miniconda3-4.7.12.1-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
     rm Miniconda3-4.7.12.1-Linux-x86_64.sh && \
     echo export PATH=$CONDA_DIR/bin:'$PATH' > /etc/profile.d/conda.sh
