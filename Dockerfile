@@ -3,21 +3,13 @@ FROM python:3.7.5-alpine3.10
 RUN apk update \
         && apk upgrade \
         && apk add --no-cache bash bash-doc bash-completion \
-        bzip2 gcc g++ freetype-dev gfortran musl-dev libgcc libquadmath musl libgfortran lapack-dev linux-headers freetds-dev \
+        bzip2 graphviz \
+        ###gcc \
+        g++ freetype-dev gfortran musl-dev libgcc libquadmath musl libgfortran lapack-dev linux-headers freetds-dev \
 	    git zip curl \
         && rm -rf /var/cache/apk/* \
         && /bin/bash \
-        && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
-
-# Install conda
-ENV CONDA_DIR /opt/conda
-ENV PATH $CONDA_DIR/bin:$PATH
-
-RUN wget --quiet --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh && \
-    ###echo "81c773ff87af5cfac79ab862942ab6b3 *Miniconda3-4.7.12.1-Linux-x86_64.sh" | md5sum -c - && \
-    /bin/bash /Miniconda3-4.7.12.1-Linux-x86_64.sh -f -b -p $CONDA_DIR && \
-    rm Miniconda3-4.7.12.1-Linux-x86_64.sh && \
-    echo export PATH=$CONDA_DIR/bin:'$PATH' > /etc/profile.d/conda.sh
+        && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan
 
 RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
         && pip3 install setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
