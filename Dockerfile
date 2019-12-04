@@ -3,7 +3,7 @@ FROM python:3.7.5-alpine3.10
 RUN apk update \
         && apk upgrade \
         && apk add --no-cache bash bash-doc bash-completion \
-        gcc g++ freetype-dev gfortran musl-dev libgcc libquadmath musl libgfortran lapack-dev linux-headers freetds-dev \
+        bzip2 gcc g++ freetype-dev gfortran musl-dev libgcc libquadmath musl libgfortran lapack-dev linux-headers freetds-dev \
 	    git zip curl \
         && rm -rf /var/cache/apk/* \
         && /bin/bash \
