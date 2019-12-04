@@ -7,15 +7,15 @@ RUN apk update \
         g++ \
         bash-doc \
         bash-completion \
-	git \
-	zip \
-	curl \
+	    git \
+	    zip \
+	    curl \
         && rm -rf /var/cache/apk/* \
         && /bin/bash \
         && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan 
         
 RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
-    && pip3 install numpy==1.16.4  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
+    && pip3 install gensim==3.7.0  -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 
 ADD . /score
 ADD urllib-demo.py /fcs
