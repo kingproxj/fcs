@@ -1,4 +1,4 @@
-FROM python:3.7.5-alpine3.10
+FROM python:3.7-stretch
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		vim \
