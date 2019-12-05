@@ -1,3 +1,5 @@
+FROM python:3.7.5-alpine3.10
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		vim \
 		gcc \
