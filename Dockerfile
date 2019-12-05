@@ -1,15 +1,8 @@
-FROM python:3.7.5-alpine3.10
-
-RUN apk update \
-        && apk upgrade \
-        && apk add --no-cache bash bash-doc bash-completion \
-        bzip2 graphviz \
-        ###gcc \
-        g++ freetype-dev gfortran musl-dev libgcc libquadmath musl libgfortran lapack-dev linux-headers freetds-dev \
-	    git zip curl \
-        && rm -rf /var/cache/apk/* \
-        && /bin/bash \
-        && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan
+RUN apt-get update && apt-get install -y --no-install-recommends \
+		vim \
+		gcc \
+      && rm -rf /var/lib/apt/lists/* \
+      && mkdir -p /fcs /score /score/model_file/loan /score/model_pkl/loan
 
 RUN pip3 install --upgrade pip -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
         && pip3 install --no-cache-dir setuptools==41.0.0 -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com \
