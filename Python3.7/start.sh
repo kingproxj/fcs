@@ -42,4 +42,4 @@ curl -X GET --header 'Accept: application/octet-stream' "$FEATURE_CSV_URI/downlo
 echo "download test model and csv from $TEST_FILES_URI"
 curl -X GET --header 'Accept: application/octet-stream' "$FEATURE_CSV_URI/download/test_x.pkl" -o /score/model_file/loan/test_x.pkl
 
-uwsgi --http :8080 --wsgi-file score_server.py
+#uwsgi --http :8080 --wsgi-file score_server.py
