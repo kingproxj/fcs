@@ -37,18 +37,15 @@ if "CodeUri" in os.environ:
 
     print('主线程运行时间: %s'%(time.time()-start_time))
 
-lst = os.listdir(os.getcwd())  # 获取当前目录下所有的文件名
-for c in lst:
-    if os.path.isfile(c) and c.endswith('.sh') and c.find("replace.sh") == 0: 
-        print("开始执行", c) 
-        os.system('sh {}'.format(c))  #执行replace.sh
-    if os.path.isfile(c) and c.endswith('.sh') and c.find("start.sh") == 0:
-        co = "sh " + c
-        print("开始执行", co)  #下载模型
-        val = os.system(co)
-        print("执行结果为",val)
-    if os.path.isfile(c) and c.endswith('.py') and c.find("server.py") == 0:
-        print("开始执行", c) #启动服务
-        os.system('python {}'.format(c))
+print("开始执行replace.sh")
+repval = os.system('sh replace.sh')
+print("执行结果为",repval)
+if repval == 0: 
+    print("开始执行start.sh", c) 
+    val = os.system('sh start.sh')  #执行replace.sh
+    print("执行结果为",val)
+    if val == 0:
+        print("开始执行server.py") #启动服务
+        os.system('python {}'.format("server.py"))
 
 print("===")
