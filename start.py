@@ -41,7 +41,7 @@ print("开始执行replace.sh")
 repval = os.system('sh replace.sh')
 print("执行结果为",repval)
 if repval == 0: 
-    print("开始执行start.sh", c) 
+    print("开始执行start.sh") 
     val = os.system('sh start.sh')  #执行replace.sh
     print("执行结果为",val)
     if val == 0:
