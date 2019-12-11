@@ -42,7 +42,7 @@ repval = os.system('sh replace.sh')
 print("执行结果为",repval)
 if repval == 0: 
     print("开始执行start.sh") 
-    val = os.system('sh start.sh')  #执行replace.sh
+    val = os.system('sh start.sh')  #执行demo模型下载
     print("执行结果为",val)
     if val == 0:
         print("开始执行server.py") #启动服务
